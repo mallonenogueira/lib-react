@@ -1,0 +1,124 @@
+header {
+  background: #1b75d1;
+  background-size: cover;
+  box-shadow: $box-shadow-1;
+  color: $white;
+  display: flex !important;
+  flex-direction: row;
+  height: 50px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1000;
+
+  img {
+    height: 30px;
+    width: auto;
+
+    &.logo--full {
+      display: block;
+    }
+  }
+
+  .navigation {
+    align-items: center;
+    display: flex;
+    width: 50%;
+    height: 100%;
+
+    .header__action {
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .version-number {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      color: $lightGray;
+    }
+
+    a {
+      margin: 0 20px;
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+
+    .header__action {
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .thumbnail {
+      display: none;
+    }
+
+    .user {
+      align-items: center;
+      display: flex;
+      font-family: 'RobotoBold';
+      font-weight: 700;
+      user-select: none;
+
+      i {
+        display: block;
+      }
+
+      .username {
+        display: none;
+      }
+    }
+  }
+
+  .header__action {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding: 0 20px;
+    height: 100%;
+    transition: background 0.12s ease-out;
+
+    &:hover,
+    &:focus {
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+
+    &--readonly {
+      pointer-events: none;
+    }
+  }
+
+  .user-options {
+    background: $darkGray;
+    box-shadow: $box-shadow-2;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    font-size: 0.875rem;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 46px;
+    z-index: $z-index-2;
+
+    &.visible {
+      display: block;
+    }
+
+    li {
+      padding: 15px;
+      transition: background 0.12s ease-out;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid transparentize($white, 0.8);
+      }
+
+      &:hover {
+        background: $accentColor;
+        cursor: pointer;
+      }
+    }
+  }
+}
