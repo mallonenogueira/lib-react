@@ -15,11 +15,11 @@ function getThClassName(column, destinationColumn, isDrag) {
     classNames.push('is-destination-column');
   }
 
-  if (column && column.meta && column.meta.fixed === 'right') {
+  if (column && column.isFixed === 'right') {
     classNames.push('is-fixed-right');
   }
 
-  if (column && column.meta && column.meta.fixed === 'left') {
+  if (column && column.isFixed === 'left') {
     classNames.push('is-fixed-left');
   }
 

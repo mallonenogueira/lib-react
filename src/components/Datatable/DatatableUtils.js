@@ -8,11 +8,11 @@ export function handleFixedColumns(flatColumns) {
     if (column.isVisibleColumn !== undefined && !column.isVisibleColumn) {
       hiddenColumns.push(column);
     }
-    if (column.meta && column.meta.fixed) {
-      if (column.meta.fixed === 'left') {
+    if (column.isFixed) {
+      if (column.isFixed === 'left') {
         leftColumns.push(column);
         return;
-      } else if (column.meta.fixed === 'right') {
+      } else if (column.isFixed === 'right') {
         rightColumns.push(column);
         return;
       }
@@ -37,7 +37,7 @@ export function handleFixedColumns(flatColumns) {
 }
 
 export function getFixedStyle(column, datatableState) {
-  if (column && column.meta && column.meta.fixed === 'right') {
+  if (column && column.isFixed === 'right') {
     const rightColumns = datatableState.rightColumns || [];
     const indexOf = rightColumns.indexOf(column);
 
@@ -54,7 +54,7 @@ export function getFixedStyle(column, datatableState) {
     };
   }
 
-  if (column && column.meta && column.meta.fixed === 'left') {
+  if (column && column.isFixed === 'left') {
     return {
       left: column.totalLeft,
     };
