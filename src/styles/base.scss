@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'RobotoThin';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RobotoLight';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RobotoThin';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Thin.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RobotoLight';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RobotoMedium';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RobotoBold';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/Roboto-Bold.woff') format('woff');
+}
+
+@import 'defaults/variables.scss';
+@import 'defaults/box-shadow.scss';
+@import 'defaults/screen-sizes.scss';
+@import 'defaults/typography.scss';
+@import 'mixins/css-icon.scss';
+@import 'mixins/text-truncation.scss';
+
+@import 'components/button.scss';
+@import 'components/spinner.scss';
+@import 'components/datatable.scss';
+
+/* CSS Base */
+html {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: $black;
+  font-family: $font-family;
+  overflow-x: hidden;
+}
+
+.applicationContainer {
+  background: var(--application-background);
+  padding: 45px 0 0;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 !important;
+
+  li {
+    display: block;
+  }
+}
+
+hr {
+  border-color: #eee;
+}
+
+.offline {
+  // background: $backgroundImg;
+  height: 100vh;
+  width: 100vw;
+}
+
+a[href^='tel:'] {
+  color: $primaryColor;
+  transition: color 0.12s ease-out;
+
+  &:hover {
+    color: $accentColor;
+
+    &:after {
+      display: inline-block;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:after {
+    @include cssIcon();
+
+    content: '\f098';
+    font-size: 0.875em;
+    margin-left: 5px;
+    opacity: 0;
+    transition: opacity 0.12s ease-out;
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.connection-status {
+  background: $error;
+  bottom: 0;
+  color: $white;
+  display: none;
+  font-size: $smallFontSize;
+  font-weight: 700;
+  padding: 10px;
+  position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: $textShadow;
+  width: 100%;
+  z-index: 1001;
+}
+
+.list {
+  @include textTruncation();
+}
+
+:root {
+  font-size: 18px;
+}
+
+pre {
+  display: inline-block;
+}

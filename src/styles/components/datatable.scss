@@ -1,0 +1,160 @@
+.datatable {
+  background: var(--datatable-background);
+  position: relative;
+  border: solid 1px $white;
+  display: inline-block;
+  margin: 25px;
+  height: 500px;
+  overflow: auto;
+  width: 100%;
+
+  table {
+    border-spacing: 0;
+    width: 100%;
+  }
+
+  .th,
+  td {
+    font-size: 20px;
+    overflow: hidden;
+    padding: 8px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  thead {
+    tr:not(:first-child) {
+      th {
+        border-bottom: 2px solid $gray-100;
+        top: 34px;
+      }
+    }
+
+    tr:last-child {
+      th {
+        border-bottom: 2px solid $gray-100;
+      }
+    }
+
+    th {
+      --resize-width: 10px;
+      border-bottom: 1px solid var(--datatable-border-color);
+      color: var(--datatable-th-color);
+      overflow: hidden;
+      position: relative;
+      z-index: $z-index-3;
+      white-space: unset;
+      background: var(--datatable-footer-background);
+      line-height: 1.4;
+
+      position: sticky;
+      top: 0;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .th {
+        font-size: 0.7rem;
+        font-weight: 600;
+        width: calc(100% - var(--resize-width));
+        position: relative;
+      }
+    }
+
+    .is-dragging {
+      z-index: $z-index-5 !important;
+      .th__drag {
+        background: var(--primary-color);
+      }
+    }
+
+    .is-destination-column {
+      background: var(--accent-color) !important;
+    }
+
+    .is-fixed-left,
+    .is-fixed-right {
+      position: sticky;
+      right: 0;
+      z-index: $z-index-4;
+    }
+
+    .is-fixed-right {
+      right: 0;
+    }
+
+    .is-fixed-left {
+      left: 0;
+    }
+
+    .resizer {
+      display: inline-block;
+      // background: blue;
+      width: 10px;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateX(50%);
+      z-index: 1;
+      touch-action: none;
+
+      &.isResizing {
+        background: var(--accent-color);
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        background-color: var(--datatable-td-background);
+        border-top: none;
+        border-left: none;
+        border-bottom: 2px solid var(--datatable-border-color);
+        border-right: 2px solid var(--datatable-border-color);
+        font-size: 0.75rem;
+        padding: 8px 12px;
+
+        &:last-child {
+          border-right: none;
+          padding-right: 5px;
+        }
+      }
+
+      &:not(.is-child):hover {
+        td {
+          background: var(--datatable-hover-background);
+        }
+      }
+
+      &.is-selected {
+        td,
+        th {
+          background: #227ecb;
+        }
+      }
+    }
+
+    .is-fixed-left,
+    .is-fixed-right {
+      position: sticky;
+      right: 0;
+      z-index: $z-index-2;
+    }
+
+    .is-fixed-right {
+      right: 0;
+      box-shadow: -2px 1px 0 var(--datatable-border-color);
+    }
+
+    .is-fixed-left {
+      left: 0;
+    }
+  }
+
+  .sumir {
+    display: none;
+  }
+}

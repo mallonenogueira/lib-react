@@ -1,0 +1,28 @@
+/*
+
+text-truncation.scss
+
+:: Objetivo ::
+
+    - Colocar ellipsis nos textos que ultrapassam o tamanho do container em que estão inseridos.
+
+:: Regras  ::
+
+1. Não edite os valores pré-definidos.
+
+:: Utilização  ::
+
+  ... {
+    @include textTruncation();
+  }
+
+*/
+
+/* -------------------------------------------------- */
+
+
+@mixin textTruncation() {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}

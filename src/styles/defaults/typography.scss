@@ -1,0 +1,95 @@
+/*
+
+typography.scss
+
+Escala tipográfica.
+
+- Os valores seguem a especificação do Material Design, que podem ser encontradas no seguinte link
+
+  - https://material.io/guidelines/style/typography.html
+
+:: Objetivo ::
+
+    - Padronizar a escala tipográfica.
+
+:: Regras  ::
+
+1. Não edite os valores da escala definida.
+
+*/
+
+/* -------------------------------------------------- */
+
+/* :: Defaults :: */
+
+$fontSize: .875rem;
+
+/* :: Escala Padrão - Headers :: */
+
+$baseFontSize: 16px;
+$fontFamily: "Roboto", "Helvetica", "Arial", sans-serif;
+
+$smallFontSize: .7rem;
+
+.typoDisplay, .typoTitle {
+  font-family: $fontFamily;
+  font-size: $baseFontSize;
+  margin: 0;
+}
+
+.typoDisplay {
+
+  &--massive {
+    font-size: 7rem;
+    letter-spacing: -.04em;
+    line-height: 1;
+  }
+
+  &--huge {
+    font-size: 3.5rem;
+    letter-spacing: -.02em;
+    line-height: 1.35;
+  }
+
+  &--big {
+    font-size: 2.8125rem;
+    line-height: 48px;
+  }
+
+  &--medium {
+    font-size: 2.125rem;
+    line-height: 40px;
+  }
+
+  &--small {
+    font-family: 'RobotoLight';
+    font-size: 1.4rem;
+    font-weight: 300 !important;
+    line-height: 32px;
+  }
+}
+
+.typoTitle {
+  &--primary {
+    font-size: 1.25rem;
+  }
+
+  &--secondary {
+    font-size: 1rem;
+  }
+
+  &--bold {
+    font-family: 'RobotoBold';
+    font-weight: 700;
+  }
+
+  &--inverse {
+    color: $white;
+  }
+}
+
+.typoCaption {
+  font-size: .75rem;
+}
+
+/* :: Escala Padrão - Texto :: */

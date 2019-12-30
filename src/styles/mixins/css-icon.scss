@@ -1,0 +1,28 @@
+/*
+
+css-icon.scss
+
+:: Objetivo ::
+
+     - Permitir a utilização de icones do FontAwesome em arquivos CSS.
+
+:: Regras  ::
+
+1. Não edite os valores pré-definidos.
+
+:: Utilização  ::
+
+  ... {
+    @include cssIcon();
+  }
+
+*/
+
+/* -------------------------------------------------- */
+
+@mixin cssIcon {
+  font-family: $icomoon-font-family;
+  font-style: normal;
+  font-weight: 900;
+  text-decoration: inherit;
+}
