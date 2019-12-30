@@ -36,23 +36,17 @@ function App() {
       {
         Header: 'Status',
         accessor: 'status',
-        meta: {
-          fixed: 'right',
-        },
+        isFixed: 'right',
       },
       {
         Header: 'Visits',
         accessor: 'visits',
-        meta: {
-          fixed: 'right',
-        },
+        isFixed: 'right',
       },
       {
         Header: 'Profile Progress',
         accessor: 'progress',
-        meta: {
-          isReorderable: false,
-        },
+        isReorderable: false,
       },
     ],
     []

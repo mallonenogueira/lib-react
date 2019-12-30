@@ -26,10 +26,12 @@ export function isTheSameGroupByIndex(
   const leftIndex = datatableState.leftColumns.length;
   const middleIndex = datatableState.middleColumns.length;
 
+  console.log(columnIndex1, columnIndex2, leftIndex, middleIndex);
+
   return (
     (columnIndex1 < leftIndex && columnIndex2 < leftIndex) ||
-    (columnIndex1 < middleIndex && columnIndex2 < middleIndex) ||
-    (columnIndex1 >= middleIndex && columnIndex2 >= middleIndex)
+    (columnIndex1 <= middleIndex && columnIndex2 <= middleIndex) ||
+    (columnIndex1 > middleIndex && columnIndex2 > middleIndex)
   );
 }
 
@@ -37,6 +39,6 @@ export function isDragDisabled(column, isReorderable) {
   return (
     !isReorderable ||
     !!column.columns ||
-    (column.meta && column.meta.isReorderable === false)
+    (column && column.isReorderable === false)
   );
 }
