@@ -30,6 +30,12 @@ function getThClassName(column, destinationColumn, isDrag) {
   return classNames.join(' ');
 }
 
+function isResizableColumn(isResizable, column) {
+  return (
+    isResizable && (column.isResizable === undefined || column.isResizable)
+  );
+}
+
 function getWidthStyle(column, datatableState) {
   if (false) {
     // 'eq-container';
@@ -137,7 +143,8 @@ export default function DatatableHead({
                             {column.render('Header')}
                           </div>
                           <div
-                            {...(isResizable && column.getResizerProps())}
+                            {...(isResizableColumn(isResizable, column) &&
+                              column.getResizerProps())}
                             className={`resizer ${
                               column.isResizing ? 'isResizing' : ''
                             }`}

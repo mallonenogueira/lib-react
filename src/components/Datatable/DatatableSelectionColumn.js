@@ -17,6 +17,7 @@ export default {
   minWidth: 50,
   maxWidth: 50,
   isReorderable: false,
+  isResizable: false,
   isFixed: 'left',
 
   Header: ({ getToggleAllRowsSelectedProps }) => {
