@@ -1,0 +1,88 @@
+@import '../defaults/variables.scss';
+
+.thumbnail {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+
+  img {
+    width: 100%;
+  }
+
+  &--small {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+  }
+
+  &--editable {
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0 0;
+    }
+
+    &:not(.thumbnail--editing) {
+      &:before {
+        @include cssIcon();
+
+        align-items: center;
+        background: transparentize($black, 0.25);
+        border-radius: 50%;
+        color: $white;
+        content: '\f303';
+        justify-content: center;
+        font-size: 2em;
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        text-shadow: $textShadow;
+        top: 0;
+        transition: opacity 0.12s ease-out;
+        width: 100%;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        &:before {
+          display: flex;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.dropzone {
+  background: $extraLightGray;
+  border: 1px dashed $lightGray;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 120px;
+  text-align: center;
+  transition: border-color 0.12s ease-out;
+
+  &:hover {
+    border-color: $accentColor;
+  }
+
+  i {
+    color: $mediumGray;
+    font-size: 2em;
+  }
+
+  [data-dz-thumbnail],
+  .dz-details,
+  .dz-success-mark,
+  .dz-error-mark {
+    display: none;
+  }
+}

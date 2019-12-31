@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Spinner, Datatable } from './components';
+import { Button, Spinner, Datatable, Header } from './components';
 
 const style = {
   margin: 10,
@@ -54,6 +54,8 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+
       <Button style={style}>Mallone</Button>
 
       <Button style={style} icon={'fa-pen'}>
