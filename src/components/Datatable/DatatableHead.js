@@ -1,58 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { getFixedStyle } from './DatatableUtils';
-
-import {
-  isDragDisabled,
-  isValidDrag,
-  getItemStyle,
-} from './DatatableHeadUtils';
-
-function getThClassName(column, destinationColumn, isDrag) {
-  const classNames = [];
-
-  if (column.id === destinationColumn) {
-    classNames.push('is-destination-column');
-  }
-
-  if (column && column.isFixed === 'right') {
-    classNames.push('is-fixed-right');
-  }
-
-  if (column && column.isFixed === 'left') {
-    classNames.push('is-fixed-left');
-  }
-
-  if (isDrag) {
-    classNames.push('is-dragging');
-  }
-
-  return classNames.join(' ');
-}
-
-function isResizableColumn(isResizable, column) {
-  return (
-    isResizable && (column.isResizable === undefined || column.isResizable)
-  );
-}
-
-function getWidthStyle(column, datatableState) {
-  if (false) {
-    // 'eq-container';
-    return {
-      width: column.totalWidth,
-      minWidth: column.totalminWidth,
-      maxWidth: column.totalMaxWidth,
-    };
-  }
-
-  // 'gt-container'
-  return {
-    width: column.totalWidth,
-    minWidth: column.totalWidth,
-    maxWidth: column.totalWidth,
-  };
-}
+import { isDragDisabled, isValidDrag } from './DatatableHeadUtils';
+import DatatableHeadCell from './DatatableHeadCell';
 
 export default function DatatableHead({
   headerGroups,
@@ -111,47 +60,16 @@ export default function DatatableHead({
                     index={index}
                     isDragDisabled={isDragDisabled(column, isReorderable)}
                   >
-                    {(provided, snapshot) => {
-                      return (
-                        <th
-                          {...column.getHeaderProps()}
-                          className={getThClassName(
-                            column,
-                            destinationColumn,
-                            snapshot.isDragging
-                          )}
-                          style={{
-                            ...getWidthStyle(column),
-                            ...getFixedStyle(column, datatableState),
-                          }}
-                        >
-                          {snapshot.isDragging ? (
-                            <div className="th">{column.render('Header')}</div>
-                          ) : null}
-                          <div
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            ref={provided.innerRef}
-                            className={'th th__drag'}
-                            style={{
-                              ...getItemStyle(
-                                snapshot,
-                                provided.draggableProps.style
-                              ),
-                            }}
-                          >
-                            {column.render('Header')}
-                          </div>
-                          <div
-                            {...(isResizableColumn(isResizable, column) &&
-                              column.getResizerProps())}
-                            className={`resizer ${
-                              column.isResizing ? 'isResizing' : ''
-                            }`}
-                          />
-                        </th>
-                      );
-                    }}
+                    {(provided, snapshot) => (
+                      <DatatableHeadCell
+                        provided={provided}
+                        snapshot={snapshot}
+                        column={column}
+                        destinationColumn={destinationColumn}
+                        datatableState={datatableState}
+                        isResizable={isResizable}
+                      />
+                    )}
                   </Draggable>
                 ))}
 
