@@ -13,6 +13,11 @@ export default class Header extends Component {
     userOptionsVisible: false,
   };
 
+  toggleMenu = () => {
+    const { menuVisible } = this.state;
+    this.setState({ menuVisible: !menuVisible });
+  };
+
   getMenuIcon() {
     const { menuVisible } = this.state;
 
@@ -55,7 +60,9 @@ export default class Header extends Component {
     return (
       <header>
         <div className="navigation">
-          <div className="header__action">{this.getMenuIcon()}</div>
+          <div className="header__action" onClick={this.toggleMenu}>
+            {this.getMenuIcon()}
+          </div>
 
           <a href="/">
             <img className="logo--full" src={logo} alt="GIX Logo" />
