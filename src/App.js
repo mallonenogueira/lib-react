@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Spinner, Datatable, Header } from './components';
+import { Button, Spinner, Datatable, Header, Radio } from './components';
 
 const style = {
   margin: 10,
@@ -54,101 +54,128 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-
-      <Button style={style}>Mallone</Button>
-
-      <Button style={style} icon={'fa-pen'}>
-        Mallone
-      </Button>
-
-      <Button style={style} icon={'fa-trash'}>
-        Mallone
-      </Button>
-
-      <Button style={style} icon={'fa-trash'}></Button>
-
-      <Button style={style} icon={'fa-trash'} small risky></Button>
-
-      <Button style={style} small>
-        Small
-      </Button>
-
-      <Button style={style} disabled>
-        Disabled
-      </Button>
-
-      <Button style={style} primary>
-        Primary
-      </Button>
-
-      <Button style={style} risky>
-        Risky
-      </Button>
-
-      <Button style={style} icon="fa-user" sneaky transparent />
-
-      <Button style={style} transparent>
-        Transparent
-      </Button>
-
-      <Button style={style} icon="fa-user" loading>
-        Loading
-      </Button>
-      <Button style={style} loading></Button>
-      <Button style={style} loading primary></Button>
-      <Button style={style} loading small></Button>
-
-      <div style={{ width: '55%' }}>
-        <Button block>Block</Button>
+      <div className="application-header">
+        <Header />
       </div>
 
-      <div>
-        <Spinner />
-        <Spinner large />
-      </div>
+      <div className="application-content">
+        <Button style={style}>Mallone</Button>
 
-      <div style={{ marginLeft: 50, transform: 'translatey(25px)' }}>
-        <label>
-          <input
-            type="checkbox"
-            checked={Boolean(tableState.isReorderable)}
-            onChange={() =>
-              setTableState({
-                ...tableState,
-                isReorderable: !tableState.isReorderable,
-              })
-            }
-          />{' '}
-          isReorderable
-        </label>{' '}
-        <label>
-          <input
-            type="checkbox"
-            checked={Boolean(tableState.isResizable)}
-            onChange={() =>
-              setTableState({
-                ...tableState,
-                isResizable: !tableState.isResizable,
-              })
-            }
-          />{' '}
-          isResizable
-        </label>
-      </div>
+        <Button style={style} icon={'fa-pen'}>
+          Mallone
+        </Button>
 
-      <div style={{ display: 'flex' }}>
-        <Datatable
-          {...tableState}
-          columns={columns}
-          data={data}
-          rowActions={<></>}
-        />
-      </div>
+        <Button style={style} icon={'fa-trash'}>
+          Mallone
+        </Button>
 
-      <pre>
-        <code>{JSON.stringify(columns, null, 2)}</code>
-      </pre>
+        <Button style={style} icon={'fa-trash'}></Button>
+
+        <Button style={style} icon={'fa-trash'} small risky></Button>
+
+        <Button style={style} small>
+          Small
+        </Button>
+
+        <Button style={style} disabled>
+          Disabled
+        </Button>
+
+        <Button style={style} primary>
+          Primary
+        </Button>
+
+        <Button style={style} risky>
+          Risky
+        </Button>
+
+        <Button style={style} icon="fa-user" sneaky transparent />
+
+        <Button style={style} transparent>
+          Transparent
+        </Button>
+
+        <Button style={style} icon="fa-user" loading>
+          Loading
+        </Button>
+        <Button style={style} loading></Button>
+        <Button style={style} loading primary></Button>
+        <Button style={style} loading small></Button>
+
+        <div style={{ width: '55%' }}>
+          <Button block>Block</Button>
+        </div>
+
+        <div>
+          <Spinner />
+          <Spinner large />
+        </div>
+
+        <div>
+          <div>
+            <Radio
+              label="Normal marcado"
+              name="nome"
+              value={true}
+              onChange={({ value }) => console.log('Mudou para: ', value)}
+            />
+          </div>
+
+          <div>
+            <Radio label="Normal desmarcado" name="nome" value={false} />
+          </div>
+
+          <div>
+            <Radio label="Desabilitado marcado" disabled value={true} />
+          </div>
+
+          <div>
+            <Radio label="Desabilitado desmarcado" disabled value={false} />
+          </div>
+        </div>
+
+        <div style={{ marginLeft: 50, transform: 'translatey(25px)' }}>
+          <label>
+            <input
+              type="checkbox"
+              checked={Boolean(tableState.isReorderable)}
+              onChange={() =>
+                setTableState({
+                  ...tableState,
+                  isReorderable: !tableState.isReorderable,
+                })
+              }
+            />{' '}
+            isReorderable
+          </label>{' '}
+          <label>
+            <input
+              type="checkbox"
+              checked={Boolean(tableState.isResizable)}
+              onChange={() =>
+                setTableState({
+                  ...tableState,
+                  isResizable: !tableState.isResizable,
+                })
+              }
+            />{' '}
+            isResizable
+          </label>
+        </div>
+
+        <div style={{ display: 'flex' }}>
+          <Datatable
+            {...tableState}
+            columns={columns}
+            data={data}
+            rowActions={<></>}
+          />
+        </div>
+
+        <pre>
+          <code>{JSON.stringify(columns, null, 2)}</code>
+        </pre>
+      </div>
     </div>
   );
 }

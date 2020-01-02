@@ -142,6 +142,32 @@ $border-radius-2: 4px;
   --button-risky-primary-active-background: #{$red-500};
   --button-risky-primary-disabled-background: #{$red-200};
 
+  /* checkbox, radio button */
+  --checkbox-radio-border-color: #{$gray-200};
+  --checkbox-radio-icon-color: #{$gray-300};
+
+  --checkbox-radio-focus-color: var(--accent-color);
+  --checkbox-radio-focus-border-color: var(--accent-color);
+  --checkbox-radio-focus-checked-background: var(--accent-color);
+  --checkbox-radio-icon-focus-color: var(--accent-color);
+
+  --checkbox-radio-hover-border-color: var(--accent-color);
+  --checkbox-radio-hover-color: var(--accent-color);
+  --checkbox-radio-icon-hover-color: var(--accent-color);
+
+  --checkbox-radio-focus-checked-border-color: var(--accent-color);
+  --checkbox-radio-icon-focus-checked-color: #{$gray-200};
+
+  --checkbox-radio-checked-background: #{$gray-600};
+  --checkbox-radio-checked-border-color: #{$gray-600};
+  --checkbox-radio-checked-color: #{$white};
+  --checkbox-radio-icon-checked-color: var(--accent-color);
+
+  --checkbox-radio-disabled-background: #{$gray-100};
+  --checkbox-radio-disabled-border-color: #{$gray-100};
+  --checkbox-radio-disabled-color: #{$gray-600};
+  --checkbox-radio-icon-disabled-checked-color: #{$gray-300};
+
   /* datatable */
   --datatable-background: #{$gray-50};
   --datatable-border-color: #{$white};
