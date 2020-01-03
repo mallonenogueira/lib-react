@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Spinner, Datatable, Header } from './components';
+import { Button, Spinner, Datatable, Header, Input } from './components';
 
 const style = {
   margin: 10,
@@ -106,6 +106,11 @@ function App() {
       <div>
         <Spinner />
         <Spinner large />
+      </div>
+
+      <div style={{ maxWidth: 400, padding: 10 }}>
+        <Input label="mallone" onClick={console.log} actionIcon="fa-filter" />
+        <Input />
       </div>
 
       <div style={{ marginLeft: 50, transform: 'translatey(25px)' }}>
