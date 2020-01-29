@@ -101,8 +101,13 @@
       touch-action: none;
 
       &.isResizing {
-        background: var(--accent-color);
+        background: var(--accent-color) !important;
         user-select: none;
+      }
+
+      &--resizable:hover {
+        background: var(--primary-color);
+        
       }
     }
   }

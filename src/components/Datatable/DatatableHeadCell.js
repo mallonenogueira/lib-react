@@ -15,6 +15,8 @@ export default function DatatableHeadCell({
   datatableState,
   isResizable,
 }) {
+  const resizable = isResizableColumn(isResizable, column);
+
   return (
     <th
       {...column.getHeaderProps()}
@@ -39,9 +41,10 @@ export default function DatatableHeadCell({
         {column.render('Header')}
       </div>
       <div
-        {...(isResizableColumn(isResizable, column) &&
-          column.getResizerProps())}
-        className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
+        {...resizable && column.getResizerProps()}
+        className={`resizer ${resizable ? 'resizer--resizable' : ''}  ${
+          column.isResizing ? 'isResizing' : ''
+        }`}
       />
     </th>
   );
